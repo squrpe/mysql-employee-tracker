@@ -2,6 +2,8 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
 const db = require('./db/connection');
+const logo = require('asciiart-logo');
+const config = require('./package.json');
 
 const utils = require('util');
 
@@ -10,6 +12,8 @@ db.query = utils.promisify(db.query);
 // Main Application Function
 
 const application = () => {
+    console.log(logo(config).render());
+    
     inquirer.prompt( [
         {
             type: 'list',

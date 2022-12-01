@@ -1,15 +1,15 @@
-DROP DATABASE IF EXISTS company;
-CREATE DATABASE company;
+-- Create Database
+DROP DATABASE IF EXISTS employee_db;
+CREATE DATABASE employee_db;
 
-USE company;
+USE employee_db;
 
 -- Department Table
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT,
   department_name VARCHAR(30) NOT NULL,
 
-  PRIMARY KEY (id),
-  UNIQUE KEY (department_name)
+  PRIMARY KEY (id)
 );
 
 -- Role Table
@@ -21,7 +21,7 @@ CREATE TABLE role (
   
   PRIMARY KEY (id),
   FOREIGN KEY (department_id) 
-    REFERENCES department(id)
+  REFERENCES department(id)
 );
 
 -- Employee Table
@@ -34,5 +34,5 @@ CREATE TABLE employee (
 
   PRIMARY KEY (id),
   FOREIGN KEY (role_id) 
-    REFERENCES role(id)
+  REFERENCES role(id)
 );
